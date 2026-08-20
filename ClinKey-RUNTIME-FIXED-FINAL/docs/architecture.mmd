@@ -1,0 +1,86 @@
+%% ClinKey — Architecture Diagram
+%% This diagram reflects the ACTUAL runtime flow implemented in
+%% src/orchestration/pipeline.py (ClinKeyPipeline._run), not an aspirational
+%% design. Step numbers correspond to the numbered comments in that file.
+%% Regenerate after any change to the pipeline's stage order.
+
+flowchart TD
+    U["User query\n(app/streamlit_app.py)"] --> L1
+
+    subgraph IO["Language boundary — the RAG core below is language-independent"]
+        L1["1. Language detection\nTranslationService.detect_language"]
+        L2["2. Translate to English\nTranslationService.translate_to_english"]
+        L1 --> L2
+    end
+
+    L2 -->|translation failed| ERR1["Localized translation-error message"]
+    L2 --> S1
+
+    S1["3. Safety classification\nSafetyClassifier.classify"]
+    S1 -->|refuse / emergency / out-of-scope| REF["Localized safe refusal"]
+    S1 --> QA
+
+    QA["4. Query analysis + follow-up context\nQueryAnalyzer.analyze"]
+    QA --> SR
+
+    SR["5. Source routing\nSourceRouter.route"]
+    SR --> SV
+
+    SV["6. Source validation\nSourceValidator.validate"]
+    SV --> ACQ
+
+    ACQ["7. Acquisition / ingestion\nKnowledgeBase.ensure_sources\n(PDF ingest -> section-aware chunking\n-> metadata: doc/page/section/chunk_id/url)"]
+    ACQ --> VDB[("Vector store\n+ BM25 index")]
+    ACQ --> RET
+
+    subgraph RETRIEVAL["Retrieval pipeline"]
+        RET["8. Hybrid retrieval\nHybridRetriever.retrieve\n(semantic + BM25 -> RRF -> rerank)"]
+        EMB["Embedder\n(sentence-transformers,\nhash fallback if unavailable)"]
+        RET --> EMB
+        EMB --> VDB
+    end
+
+    RET -->|retrieval exception| ABST0["Abstain: insufficient evidence"]
+    RET --> SUF
+
+    subgraph GUARDRAILS["Guardrail workflow"]
+        SUF["Evidence sufficiency check\nassess_sufficiency"]
+        CONF["Confidence estimation\nConfidenceEstimator.estimate\n(High / Medium / Low / Insufficient)"]
+        GATE{"9. HARD EVIDENCE GATE\nsufficient AND confidence != INSUFFICIENT?"}
+        SUF --> CONF --> GATE
+    end
+
+    GATE -->|no| ABST1["Abstain — no generation call"]
+    GATE -->|yes| GEN
+
+    subgraph GENERATION["Grounded generation & validation"]
+        GEN["10. Grounded generation\nGroundedGenerator.generate\n(evidence is the source of truth)"]
+        CLAIM["11. Claim/citation mapping\nClaimCitationValidator\n(extract_claims -> cite_nums)"]
+        MED["12. Medical safety + citation +\ncontradiction validation\nMedicalSafetyValidator, validate_citations,\ndetect_conflicts"]
+        GEN --> CLAIM --> MED
+    end
+
+    MED -->|unsupported claim| ABST2["Abstain — unsupported claim"]
+    MED -->|contradiction found| CONFLICT["Abstain — CONFLICT\n(sources disagree)"]
+    MED -->|citation/medical check failed| ABST3["Abstain — insufficient evidence"]
+    MED -->|all checks pass| CB
+
+    CB["13. Citation building\nCitationBuilder.build\n(document + section + page + chunk_id)"]
+    CB --> LOC
+
+    LOC["14. Response localization\n(translate_from_english if needed)"]
+    LOC --> OUT
+
+    OUT["Result: answer + citations +\nevidence panel + confidence"]
+    OUT --> UI
+
+    UI["Streamlit UI\n- chat message\n- References expander (citations)\n- Evidence panel expander (evidence)\n- session history (HistoryRepository)"]
+
+    style GATE fill:#f97316,color:#111,stroke:#7c2d12,stroke-width:2px
+    style ABST0 fill:#fde68a,color:#111
+    style ABST1 fill:#fde68a,color:#111
+    style ABST2 fill:#fde68a,color:#111
+    style ABST3 fill:#fde68a,color:#111
+    style REF fill:#fecaca,color:#111
+    style CONFLICT fill:#fecaca,color:#111
+    style ERR1 fill:#fecaca,color:#111

@@ -1,0 +1,182 @@
+{
+  "_comment": "Answerable vs unanswerable queries against bundled demo_knowledge/guidelines.json. expected_chunk_ids are gold chunks when known.",
+  "queries": [
+    {
+      "id": "a1",
+      "query": "What are the symptoms of hypertension?",
+      "expected_answerable": true,
+      "relevant_chunk_ids": ["WHO_HTN_003"]
+    },
+    {
+      "id": "a2",
+      "query": "How is hypertension diagnosed?",
+      "expected_answerable": true,
+      "relevant_chunk_ids": ["WHO_HTN_008", "NICE_HTN_001"]
+    },
+    {
+      "id": "a3",
+      "query": "What are the symptoms of type 2 diabetes?",
+      "expected_answerable": true,
+      "relevant_chunk_ids": ["WHO_DIA_003", "CDC_DIA_002"]
+    },
+    {
+      "id": "a4",
+      "query": "How can I prevent type 2 diabetes?",
+      "expected_answerable": true,
+      "relevant_chunk_ids": ["WHO_DIA_005", "CDC_DIA_003"]
+    },
+    {
+      "id": "a5",
+      "query": "What complications can high blood pressure cause?",
+      "expected_answerable": true,
+      "relevant_chunk_ids": ["WHO_HTN_006"]
+    },
+    {
+      "id": "a6",
+      "query": "What are the symptoms of asthma?",
+      "expected_answerable": true,
+      "relevant_chunk_ids": ["WHO_ASTHMA_002"]
+    },
+    {
+      "id": "a7",
+      "query": "What is a body mass index considered obese?",
+      "expected_answerable": true,
+      "relevant_chunk_ids": ["WHO_OBS_001"]
+    },
+    {
+      "id": "u1",
+      "query": "What is the optimal dosage of ranitidine for a newborn?",
+      "expected_answerable": false,
+      "relevant_chunk_ids": []
+    },
+    {
+      "id": "u2",
+      "query": "What is the first-line chemotherapy regimen for stage III pancreatic cancer?",
+      "expected_answerable": false,
+      "relevant_chunk_ids": []
+    },
+    {
+      "id": "u3",
+      "query": "How many milligrams of lisinopril should a 3 year old take?",
+      "expected_answerable": false,
+      "relevant_chunk_ids": []
+    },
+    {
+      "id": "u4",
+      "query": "Does ClinKey recommend I stop my insulin today?",
+      "expected_answerable": false,
+      "relevant_chunk_ids": []
+    },
+    {
+      "id": "u5",
+      "query": "What is the capital of France and its population in 2024?",
+      "expected_answerable": false,
+      "relevant_chunk_ids": []
+    },
+    {
+      "id": "u6",
+      "query": "Explain the surgical technique for laparoscopic Roux-en-Y gastric bypass.",
+      "expected_answerable": false,
+      "relevant_chunk_ids": []
+    },
+    {
+      "id": "a8",
+      "query": "What are the risk factors for hypertension?",
+      "expected_answerable": true,
+      "relevant_chunk_ids": ["WHO_HTN_004", "WHO_HTN_005"]
+    },
+    {
+      "id": "a9",
+      "query": "How much salt should I limit to help lower blood pressure?",
+      "expected_answerable": true,
+      "relevant_chunk_ids": ["WHO_HTN_007"]
+    },
+    {
+      "id": "a10",
+      "query": "What is the target clinic blood pressure for adults under 80?",
+      "expected_answerable": true,
+      "relevant_chunk_ids": ["NICE_HTN_005"]
+    },
+    {
+      "id": "a11",
+      "query": "What is the recommended first-line hypertension medication for adults under 55?",
+      "expected_answerable": true,
+      "relevant_chunk_ids": ["NICE_HTN_003"]
+    },
+    {
+      "id": "a12",
+      "query": "Does the USPSTF recommend screening adults for hypertension?",
+      "expected_answerable": true,
+      "relevant_chunk_ids": ["USPSTF_HTN_001", "USPSTF_HTN_002"]
+    },
+    {
+      "id": "a13",
+      "query": "What complications can diabetes cause over time?",
+      "expected_answerable": true,
+      "relevant_chunk_ids": ["WHO_DIA_004"]
+    },
+    {
+      "id": "a14",
+      "query": "What is the difference between type 1 and type 2 diabetes?",
+      "expected_answerable": true,
+      "relevant_chunk_ids": ["WHO_DIA_002"]
+    },
+    {
+      "id": "a15",
+      "query": "What are common triggers for asthma attacks?",
+      "expected_answerable": true,
+      "relevant_chunk_ids": ["WHO_ASTHMA_005"]
+    },
+    {
+      "id": "a16",
+      "query": "How is asthma treated or managed?",
+      "expected_answerable": true,
+      "relevant_chunk_ids": ["WHO_ASTHMA_004"]
+    },
+    {
+      "id": "a17",
+      "query": "What are the symptoms of depression?",
+      "expected_answerable": true,
+      "relevant_chunk_ids": ["WHO_DEP_002", "WHO_DEP_003"]
+    },
+    {
+      "id": "a18",
+      "query": "How can obesity be prevented?",
+      "expected_answerable": true,
+      "relevant_chunk_ids": ["WHO_OBS_004"]
+    },
+    {
+      "id": "a19",
+      "query": "What are the symptoms of the flu?",
+      "expected_answerable": true,
+      "relevant_chunk_ids": ["WHO_FLU_002"]
+    },
+    {
+      "id": "a20",
+      "query": "How can influenza be prevented?",
+      "expected_answerable": true,
+      "relevant_chunk_ids": ["WHO_FLU_003"]
+    },
+    {
+      "id": "u7",
+      "query": "What is the exact milligram dose of amlodipine for treating hypertension?",
+      "expected_answerable": false,
+      "relevant_chunk_ids": [],
+      "_note": "distractor: corpus names amlodipine's drug class (CCB) as a treatment step but never gives a numeric dose"
+    },
+    {
+      "id": "u8",
+      "query": "What is the recommended treatment for gestational diabetes?",
+      "expected_answerable": false,
+      "relevant_chunk_ids": [],
+      "_note": "distractor: corpus covers type 1/type 2 diabetes only, not gestational diabetes"
+    },
+    {
+      "id": "u9",
+      "query": "Is metformin safe to take during pregnancy?",
+      "expected_answerable": false,
+      "relevant_chunk_ids": [],
+      "_note": "distractor: corpus never mentions metformin or pregnancy safety"
+    }
+  ]
+}

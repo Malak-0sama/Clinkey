@@ -1,0 +1,1 @@
+"""Medical safety classification layer."""

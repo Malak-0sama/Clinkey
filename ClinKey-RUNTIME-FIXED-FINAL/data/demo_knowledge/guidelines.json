@@ -1,0 +1,375 @@
+{
+  "_comment": "Bundled demonstration evidence corpus. Contains accurate, well-known facts summarized from official WHO / CDC / NICE / USPSTF guidelines. Ingested into the vector store on first run so ClinKey works fully offline. Real guideline downloads are added on top of this when online.",
+  "documents": [
+    {
+      "source_id": "who_hypertension",
+      "organization": "WHO",
+      "title": "Hypertension — Fact Sheet",
+      "official_url": "https://www.who.int/news-room/fact-sheets/detail/hypertension",
+      "publication_date": "2023-03-16",
+      "version": "1.0",
+      "chunks": [
+        {
+          "chunk_id": "WHO_HTN_001",
+          "section": "Overview",
+          "page": 1,
+          "text": "Hypertension, also called high blood pressure, is a condition in which the pressure in the blood vessels is persistently too high (140/90 mmHg or higher). It is common but can be serious if not treated."
+        },
+        {
+          "chunk_id": "WHO_HTN_002",
+          "section": "Overview",
+          "page": 1,
+          "text": "An estimated 1.28 billion adults aged 30 to 79 years worldwide have hypertension, most (two-thirds) living in low- and middle-income countries. An estimated 46% of adults with hypertension are unaware that they have the condition."
+        },
+        {
+          "chunk_id": "WHO_HTN_003",
+          "section": "Symptoms",
+          "page": 1,
+          "text": "Most people with hypertension do not feel any symptoms. Very high blood pressure can cause headaches, blurred vision, chest pain, and other symptoms. Checking blood pressure is the best way to know if it is high."
+        },
+        {
+          "chunk_id": "WHO_HTN_004",
+          "section": "Risk factors",
+          "page": 2,
+          "text": "Modifiable risk factors for hypertension include unhealthy diets (excessive salt consumption, diets high in saturated and trans fats, low intake of fruits and vegetables), physical inactivity, consumption of tobacco and alcohol, and being overweight or obese."
+        },
+        {
+          "chunk_id": "WHO_HTN_005",
+          "section": "Risk factors",
+          "page": 2,
+          "text": "Non-modifiable risk factors include a family history of hypertension, age over 65 years, and co-existing diseases such as diabetes or kidney disease."
+        },
+        {
+          "chunk_id": "WHO_HTN_006",
+          "section": "Complications",
+          "page": 2,
+          "text": "Uncontrolled high blood pressure can cause chest pain (angina), heart attacks, heart failure, irregular heart beat, and stroke, as well as kidney damage. It is a major cause of premature death worldwide."
+        },
+        {
+          "chunk_id": "WHO_HTN_007",
+          "section": "Prevention",
+          "page": 3,
+          "text": "Lifestyle changes can help lower high blood pressure: eat more vegetables and fruits, be physically active, reduce salt intake to less than 5 grams per day, avoid tobacco, reduce alcohol, and manage stress."
+        },
+        {
+          "chunk_id": "WHO_HTN_008",
+          "section": "Diagnosis",
+          "page": 3,
+          "text": "Hypertension is diagnosed when, measured on two different days, the systolic blood pressure readings on both days are 140 mmHg or greater and/or the diastolic blood pressure readings are 90 mmHg or greater."
+        }
+      ]
+    },
+    {
+      "source_id": "who_diabetes",
+      "organization": "WHO",
+      "title": "Diabetes — Fact Sheet",
+      "official_url": "https://www.who.int/news-room/fact-sheets/detail/diabetes",
+      "publication_date": "2023-04-05",
+      "version": "1.0",
+      "chunks": [
+        {
+          "chunk_id": "WHO_DIA_001",
+          "section": "Overview",
+          "page": 1,
+          "text": "Diabetes is a chronic disease that occurs either when the pancreas does not produce enough insulin or when the body cannot effectively use the insulin it produces. Insulin regulates blood glucose."
+        },
+        {
+          "chunk_id": "WHO_DIA_002",
+          "section": "Types",
+          "page": 1,
+          "text": "Type 1 diabetes is characterized by deficient insulin production and requires daily administration of insulin. Type 2 diabetes, the most common form, results from the body's ineffective use of insulin."
+        },
+        {
+          "chunk_id": "WHO_DIA_003",
+          "section": "Symptoms",
+          "page": 2,
+          "text": "Symptoms of diabetes include excessive urination (polyuria), excessive thirst (polydipsia), constant hunger, weight loss, vision changes, and fatigue. Symptoms may be sudden in type 1 diabetes."
+        },
+        {
+          "chunk_id": "WHO_DIA_004",
+          "section": "Complications",
+          "page": 2,
+          "text": "Over time, diabetes can damage the heart, blood vessels, eyes, kidneys, and nerves, and increase the risk of heart attack, stroke, kidney failure, blindness, and lower-limb amputation."
+        },
+        {
+          "chunk_id": "WHO_DIA_005",
+          "section": "Prevention",
+          "page": 3,
+          "text": "Type 2 diabetes can be prevented or delayed with a healthy diet, regular physical activity, maintaining a normal body weight, and avoiding tobacco use."
+        },
+        {
+          "chunk_id": "WHO_DIA_006",
+          "section": "Burden",
+          "page": 3,
+          "text": "About 422 million people worldwide have diabetes, and about 1.5 million deaths are directly attributed to diabetes each year."
+        }
+      ]
+    },
+    {
+      "source_id": "cdc_high_blood_pressure",
+      "organization": "CDC",
+      "title": "About High Blood Pressure",
+      "official_url": "https://www.cdc.gov/high-blood-pressure/about/index.html",
+      "publication_date": "2024-05-15",
+      "version": "1.0",
+      "chunks": [
+        {
+          "chunk_id": "CDC_BP_001",
+          "section": "Overview",
+          "page": 1,
+          "text": "High blood pressure, also known as hypertension, is blood pressure that is consistently higher than normal. Nearly half of adults in the United States have high blood pressure, and many do not know it."
+        },
+        {
+          "chunk_id": "CDC_BP_002",
+          "section": "Overview",
+          "page": 1,
+          "text": "High blood pressure usually has no warning signs or symptoms, which is why it is sometimes called the silent killer. The only way to know if you have it is to measure your blood pressure."
+        },
+        {
+          "chunk_id": "CDC_BP_003",
+          "section": "What it is",
+          "page": 1,
+          "text": "Blood pressure is measured using two numbers. Systolic pressure measures the pressure in the arteries when the heart beats. Diastolic pressure measures the pressure in the arteries when the heart rests between beats."
+        },
+        {
+          "chunk_id": "CDC_BP_004",
+          "section": "Prevention",
+          "page": 2,
+          "text": "You can help prevent high blood pressure by eating a healthy diet, maintaining a healthy weight, being physically active, not smoking, limiting alcohol, and getting enough sleep."
+        }
+      ]
+    },
+    {
+      "source_id": "cdc_diabetes",
+      "organization": "CDC",
+      "title": "About Diabetes",
+      "official_url": "https://www.cdc.gov/diabetes/about/index.html",
+      "publication_date": "2024-05-15",
+      "version": "1.0",
+      "chunks": [
+        {
+          "chunk_id": "CDC_DIA_001",
+          "section": "Overview",
+          "page": 1,
+          "text": "Diabetes is a chronic health condition that affects how the body turns food into energy. When blood sugar is too high because the body cannot make enough insulin or cannot use it well."
+        },
+        {
+          "chunk_id": "CDC_DIA_002",
+          "section": "Symptoms",
+          "page": 1,
+          "text": "Symptoms of diabetes include urinating a lot, feeling very thirsty, feeling very hungry, blurry vision, numbness or tingling in the hands or feet, fatigue, very dry skin, and sores that heal slowly."
+        },
+        {
+          "chunk_id": "CDC_DIA_003",
+          "section": "Prevention",
+          "page": 2,
+          "text": "Type 2 diabetes can be prevented or delayed by losing a modest amount of weight if overweight, eating a healthy diet, and being physically active for about 30 minutes on most days."
+        }
+      ]
+    },
+    {
+      "source_id": "nice_hypertension_ng136",
+      "organization": "NICE",
+      "title": "Hypertension in adults: diagnosis and management (NG136)",
+      "official_url": "https://www.nice.org.uk/guidance/ng136",
+      "publication_date": "2019-08-28",
+      "version": "NG136",
+      "chunks": [
+        {
+          "chunk_id": "NICE_HTN_001",
+          "section": "Diagnosis",
+          "page": 12,
+          "text": "When using a clinic reading, measure blood pressure with a validated automated device. Confirm the diagnosis of hypertension using ambulatory blood pressure monitoring (ABPM) or home blood pressure monitoring (HBPM) where appropriate."
+        },
+        {
+          "chunk_id": "NICE_HTN_002",
+          "section": "Lifestyle",
+          "page": 18,
+          "text": "Offer lifestyle advice on a healthy diet, regular exercise, reducing alcohol and caffeine consumption, stopping smoking, and reducing dietary salt to people with hypertension."
+        },
+        {
+          "chunk_id": "NICE_HTN_003",
+          "section": "Treatment",
+          "page": 24,
+          "text": "Step 1 pharmacological treatment: offer an angiotensin-converting enzyme (ACE) inhibitor or angiotensin receptor blocker (ARB) to adults under 55 years who are not of black African or African-Caribbean family origin, and a calcium-channel blocker (CCB) to adults aged 55 or over, or of black African or African-Caribbean family origin."
+        },
+        {
+          "chunk_id": "NICE_HTN_004",
+          "section": "Treatment",
+          "page": 25,
+          "text": "Step 2: if blood pressure is not controlled, combine an ACE inhibitor or ARB with a calcium-channel blocker. Step 3: if still uncontrolled, add a thiazide-like diuretic."
+        },
+        {
+          "chunk_id": "NICE_HTN_005",
+          "section": "Treatment targets",
+          "page": 26,
+          "text": "Aim for a target clinic blood pressure below 140/90 mmHg in adults under 80 years, and below 150/90 mmHg in adults aged 80 years and over. When using ABPM or HBPM, aim below 135/85 mmHg (under 80) or below 145/85 mmHg (80 and over)."
+        }
+      ]
+    },
+    {
+      "source_id": "uspstf_hypertension_screening",
+      "organization": "USPSTF",
+      "title": "Hypertension in Adults: Screening",
+      "official_url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/hypertension-in-adults-screening",
+      "publication_date": "2021-04-27",
+      "version": "Final Recommendation",
+      "chunks": [
+        {
+          "chunk_id": "USPSTF_HTN_001",
+          "section": "Recommendation",
+          "page": 1,
+          "text": "The USPSTF recommends screening for hypertension in adults 18 years or older with office blood pressure measurement. The USPSTF recommends obtaining blood pressure measurements outside the clinical setting for diagnostic confirmation before starting treatment."
+        },
+        {
+          "chunk_id": "USPSTF_HTN_002",
+          "section": "Grade",
+          "page": 1,
+          "text": "The USPSTF recommendation for screening adults aged 18 years or older for hypertension carries a Grade A recommendation, indicating high certainty of substantial net benefit."
+        }
+      ]
+    },
+    {
+      "source_id": "who_asthma",
+      "organization": "WHO",
+      "title": "Asthma — Fact Sheet",
+      "official_url": "https://www.who.int/news-room/fact-sheets/detail/asthma",
+      "publication_date": "2024-05-06",
+      "version": "1.0",
+      "chunks": [
+        {
+          "chunk_id": "WHO_ASTHMA_001",
+          "section": "Overview",
+          "page": 1,
+          "text": "Asthma is a chronic lung disease affecting people of all ages. It is caused by inflammation and muscle tightening around the airways, which makes it harder to breathe."
+        },
+        {
+          "chunk_id": "WHO_ASTHMA_002",
+          "section": "Symptoms",
+          "page": 1,
+          "text": "Symptoms of asthma can include cough, wheezing, shortness of breath and chest tightness. These symptoms are intermittent and are often worse at night or during exercise."
+        },
+        {
+          "chunk_id": "WHO_ASTHMA_003",
+          "section": "Burden",
+          "page": 2,
+          "text": "Asthma affected an estimated 262 million people in 2019 and caused about 455,000 deaths. Most asthma-related deaths occur in low- and lower-middle-income countries."
+        },
+        {
+          "chunk_id": "WHO_ASTHMA_004",
+          "section": "Treatment",
+          "page": 3,
+          "text": "Asthma cannot be cured, but it can be managed. Inhaled medications (bronchodilators and inhaled corticosteroids) control symptoms and allow people to lead normal, active lives."
+        },
+        {
+          "chunk_id": "WHO_ASTHMA_005",
+          "section": "Triggers",
+          "page": 3,
+          "text": "Common asthma triggers include tobacco smoke, dust mites, outdoor air pollution, pet dander, mold, and respiratory infections. Avoiding triggers can help prevent asthma attacks."
+        }
+      ]
+    },
+    {
+      "source_id": "who_depression",
+      "organization": "WHO",
+      "title": "Depressive disorder (depression) — Fact Sheet",
+      "official_url": "https://www.who.int/news-room/fact-sheets/detail/depression",
+      "publication_date": "2023-03-31",
+      "version": "1.0",
+      "chunks": [
+        {
+          "chunk_id": "WHO_DEP_001",
+          "section": "Overview",
+          "page": 1,
+          "text": "Depressive disorder (also called depression) is a common mental disorder. It involves a depressed mood or loss of pleasure or interest in activities for long periods of time."
+        },
+        {
+          "chunk_id": "WHO_DEP_002",
+          "section": "Symptoms",
+          "page": 1,
+          "text": "Symptoms of depression include a depressed mood (feeling sad, irritable, empty) or a loss of pleasure or interest in activities, most of the day, nearly every day, for at least two weeks."
+        },
+        {
+          "chunk_id": "WHO_DEP_003",
+          "section": "Other symptoms",
+          "page": 2,
+          "text": "Other symptoms of depression may include poor concentration, feelings of excessive guilt or low self-worth, hopelessness about the future, thoughts about dying or suicide, disrupted sleep, changes in appetite or weight, and feeling very tired or low in energy."
+        },
+        {
+          "chunk_id": "WHO_DEP_004",
+          "section": "Burden",
+          "page": 2,
+          "text": "An estimated 280 million people, including 5% of all adults, experience depression. Depression is more common among women than men."
+        },
+        {
+          "chunk_id": "WHO_DEP_005",
+          "section": "Treatment",
+          "page": 3,
+          "text": "Effective treatments for depression include psychological therapy and antidepressant medication. Care should be sought from a qualified health professional."
+        }
+      ]
+    },
+    {
+      "source_id": "who_obesity",
+      "organization": "WHO",
+      "title": "Obesity and overweight — Fact Sheet",
+      "official_url": "https://www.who.int/news-room/fact-sheets/detail/obesity-and-overweight",
+      "publication_date": "2024-03-01",
+      "version": "1.0",
+      "chunks": [
+        {
+          "chunk_id": "WHO_OBS_001",
+          "section": "Overview",
+          "page": 1,
+          "text": "Overweight and obesity are defined as abnormal or excessive fat accumulation that presents a risk to health. A body mass index (BMI) over 25 is considered overweight, and over 30 is considered obese."
+        },
+        {
+          "chunk_id": "WHO_OBS_002",
+          "section": "Causes",
+          "page": 2,
+          "text": "Overweight and obesity result from an imbalance of energy intake (diet) and energy expenditure (physical activity). They are also influenced by genetic, behavioural, metabolic and environmental factors."
+        },
+        {
+          "chunk_id": "WHO_OBS_003",
+          "section": "Health risks",
+          "page": 2,
+          "text": "Raised BMI is a major risk factor for noncommunicable diseases such as cardiovascular diseases, type 2 diabetes, and several cancers."
+        },
+        {
+          "chunk_id": "WHO_OBS_004",
+          "section": "Prevention",
+          "page": 3,
+          "text": "Overweight and obesity can be prevented by limiting energy intake from fats and sugars, increasing consumption of fruits, vegetables, legumes and whole grains, and engaging in regular physical activity."
+        }
+      ]
+    },
+    {
+      "source_id": "who_influenza",
+      "organization": "WHO",
+      "title": "Influenza (Seasonal) — Fact Sheet",
+      "official_url": "https://www.who.int/news-room/fact-sheets/detail/influenza-(seasonal)",
+      "publication_date": "2023-10-03",
+      "version": "1.0",
+      "chunks": [
+        {
+          "chunk_id": "WHO_FLU_001",
+          "section": "Overview",
+          "page": 1,
+          "text": "Seasonal influenza (the flu) is an acute respiratory infection caused by influenza viruses. It spreads easily and circulates in all parts of the world."
+        },
+        {
+          "chunk_id": "WHO_FLU_002",
+          "section": "Symptoms",
+          "page": 1,
+          "text": "Symptoms of influenza include sudden onset of fever, cough (usually dry), headache, muscle and joint pain, severe malaise, sore throat and a runny nose. Most people recover within a week without medical attention."
+        },
+        {
+          "chunk_id": "WHO_FLU_003",
+          "section": "Prevention",
+          "page": 2,
+          "text": "Annual vaccination is the most effective way to prevent influenza and its complications. Vaccination is especially important for pregnant women, young children, the elderly and people with chronic conditions."
+        }
+      ]
+    }
+  ]
+}

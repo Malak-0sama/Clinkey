@@ -1,0 +1,17 @@
+# ClinKey — Medical Evidence RAG
+# Core (required)
+streamlit>=1.36
+pyyaml>=6.0
+langdetect>=1.0.9
+deep-translator>=1.11.4
+requests>=2.31
+pypdf>=4.0
+numpy>=1.24
+
+# Optional — enable for production-quality RAG features.
+# The app runs in a self-contained "demo" mode without them.
+google-generativeai>=0.6.0    # Gemini LLM (translation / safety / routing / generation)
+chromadb>=0.4.22              # persistent vector database
+sentence-transformers>=2.5.0  # BGE-family embedding models
+
+pillow>=9.0                   # logos in Streamlit

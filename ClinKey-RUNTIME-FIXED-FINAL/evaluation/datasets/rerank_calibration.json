@@ -1,0 +1,13 @@
+{
+  "pairs": [
+    {"id": "p1", "label": "positive", "query": "What is step 2 hypertension treatment?", "evidence": "Step 2: combine an ACE inhibitor or ARB with a calcium-channel blocker."},
+    {"id": "p2", "label": "positive", "query": "What are the symptoms of hypertension?", "evidence": "Most people with hypertension do not feel any symptoms. Very high blood pressure can cause headaches, blurred vision, chest pain."},
+    {"id": "p3", "label": "positive", "query": "How is hypertension diagnosed?", "evidence": "Hypertension is diagnosed when systolic blood pressure readings are 140 mmHg or greater and/or diastolic readings are 90 mmHg or greater."},
+    {"id": "p4", "label": "positive", "query": "What are the symptoms of type 2 diabetes?", "evidence": "Symptoms of diabetes include excessive urination, excessive thirst, constant hunger, weight loss, vision changes, and fatigue."},
+    {"id": "n1", "label": "negative", "query": "What is the recommended management of a femoral fracture?", "evidence": "Antimalarial treatment should be started promptly for falciparum malaria."},
+    {"id": "n2", "label": "negative", "query": "What is the treatment of femoral fracture?", "evidence": "Offer an ACE inhibitor or ARB to adults under 55 with hypertension."},
+    {"id": "n3", "label": "negative", "query": "What is the exact dose of lisinopril?", "evidence": "ACE inhibitors are recommended as first-line treatment for hypertension."},
+    {"id": "n4", "label": "negative", "query": "What is the recommended management of a femoral fracture?", "evidence": "Home > Guidelines > ESC > Read more. World Cardio Agenda. Back to top."},
+    {"id": "n5", "label": "negative", "query": "What is step 2 hypertension treatment?", "evidence": "An estimated 1.28 billion adults worldwide have hypertension."}
+  ]
+}

@@ -1,0 +1,86 @@
+// ClinKey — Architecture Diagram (Graphviz source)
+// Rendered offline to docs/architecture.png (mermaid-cli needs a browser
+// download that this sandboxed network can't reach, so Graphviz — already
+// installed, no network required — is used to render the same content
+// described in docs/architecture.mmd). Mirrors src/orchestration/pipeline.py.
+digraph ClinKey {
+    rankdir=TB;
+    fontname="Helvetica";
+    node [fontname="Helvetica", shape=box, style="rounded,filled", fillcolor="#DCEBFB", color="#0B4F8A"];
+    edge [fontname="Helvetica", fontsize=10, color="#4B5563"];
+
+    U [label="User query\n(app/streamlit_app.py)", shape=oval, fillcolor="#E5E7EB"];
+
+    subgraph cluster_io {
+        label="Language boundary — RAG core below is language-independent";
+        style=dashed; color="#9CA3AF";
+        L1 [label="1. Language detection\nTranslationService.detect_language"];
+        L2 [label="2. Translate to English\nTranslationService.translate_to_english"];
+        L1 -> L2;
+    }
+
+    S1 [label="3. Safety classification\nSafetyClassifier.classify"];
+    QA [label="4. Query analysis + follow-up context\nQueryAnalyzer.analyze"];
+    SR [label="5. Source routing\nSourceRouter.route"];
+    SV [label="6. Source validation\nSourceValidator.validate"];
+    ACQ [label="7. Acquisition / ingestion\nKnowledgeBase.ensure_sources\n(section-aware chunking, metadata)"];
+    VDB [label="Vector store\n+ BM25 index", shape=cylinder, fillcolor="#FDE68A"];
+
+    subgraph cluster_retrieval {
+        label="Retrieval pipeline";
+        style=dashed; color="#9CA3AF";
+        RET [label="8. Hybrid retrieval\nHybridRetriever.retrieve\n(semantic + BM25 -> RRF -> rerank)"];
+        EMB [label="Embedder\n(sentence-transformers,\nhash fallback if unavailable)"];
+    }
+
+    subgraph cluster_guard {
+        label="Guardrail workflow";
+        style=dashed; color="#9CA3AF";
+        SUF [label="Evidence sufficiency\nassess_sufficiency"];
+        CONF [label="Confidence estimation\nConfidenceEstimator.estimate\n(High/Medium/Low/Insufficient)"];
+        GATE [label="9. HARD EVIDENCE GATE\nsufficient AND\nconfidence != INSUFFICIENT?", shape=diamond, fillcolor="#FDBA74"];
+    }
+
+    subgraph cluster_gen {
+        label="Grounded generation & validation";
+        style=dashed; color="#9CA3AF";
+        GEN [label="10. Grounded generation\nGroundedGenerator.generate"];
+        CLAIM [label="11. Claim/citation mapping\nClaimCitationValidator"];
+        MED [label="12. Medical safety + citation +\ncontradiction validation"];
+    }
+
+    CB [label="13. Citation building\nCitationBuilder.build"];
+    LOC [label="14. Response localization"];
+    OUT [label="Result: answer + citations +\nevidence panel + confidence", fillcolor="#BBF7D0"];
+    UI [label="Streamlit UI\nchat + References + Evidence panel\n+ session history (HistoryRepository)", shape=oval, fillcolor="#E5E7EB"];
+
+    ERR1 [label="Localized translation-error message", fillcolor="#FECACA"];
+    REF [label="Localized safe refusal", fillcolor="#FECACA"];
+    ABST0 [label="Abstain: insufficient evidence\n(retrieval exception)", fillcolor="#FDE68A"];
+    ABST1 [label="Abstain — no generation call", fillcolor="#FDE68A"];
+    ABST2 [label="Abstain — unsupported claim", fillcolor="#FDE68A"];
+    ABST3 [label="Abstain — insufficient evidence\n(citation/medical check failed)", fillcolor="#FDE68A"];
+    CONFLICT [label="Abstain — CONFLICT\n(sources disagree)", fillcolor="#FECACA"];
+
+    U -> L1;
+    L2 -> ERR1 [label="translation failed"];
+    L2 -> S1;
+    S1 -> REF [label="refuse / emergency /\nout-of-scope"];
+    S1 -> QA;
+    QA -> SR -> SV -> ACQ;
+    ACQ -> VDB;
+    ACQ -> RET;
+    RET -> EMB;
+    EMB -> VDB;
+    RET -> ABST0 [label="retrieval exception"];
+    RET -> SUF;
+    SUF -> CONF -> GATE;
+    GATE -> ABST1 [label="no"];
+    GATE -> GEN [label="yes"];
+    GEN -> CLAIM -> MED;
+    MED -> ABST2 [label="unsupported claim"];
+    MED -> CONFLICT [label="contradiction found"];
+    MED -> ABST3 [label="citation/medical\ncheck failed"];
+    MED -> CB [label="all checks pass"];
+    CB -> LOC -> OUT -> UI;
+}
