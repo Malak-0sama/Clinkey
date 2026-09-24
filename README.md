@@ -33,4 +33,3 @@ answer back in your language.
 
 ---
 
-## Architecture
